@@ -18,6 +18,5 @@ for znak in serazene_data:
 
 
 vystup_data = {"data": cetnost_znaku}
-
 with open("hw1_output.json", mode="w", encoding="utf-8") as json_file:
     json.dump(vystup_data, json_file, ensure_ascii=False, indent=4)
