@@ -3,21 +3,19 @@ import json
 with open("alice.txt", mode="r", encoding="utf-8") as hw01_output:
     text = hw01_output.read()
 
-znaky_v_textu = ''.join(znak.lower()
-                        for znak in text if znak not in (' ', ('\n')))
+cleaned_text = text.replace(' ','').replace('\n','')
 
-serazene_data = sorted(znaky_v_textu)
+text_characters = cleaned_text.lower()
 
-cetnost_znaku = {}
+character_frequency = {}
 
-for znak in serazene_data:
-    if znak in cetnost_znaku:
-        cetnost_znaku[znak] += 1
+for character in text_characters:
+    if character in character_frequency:
+        character_frequency[character] += 1
     else:
-        cetnost_znaku[znak] = 1
+        character_frequency[character] = 1
 
-
-vystup_data = {"data": cetnost_znaku}
+output_data = character_frequency
 
 with open("hw1_output.json", mode="w", encoding="utf-8") as json_file:
-    json.dump(vystup_data, json_file, ensure_ascii=False, indent=4)
+    json.dump(output_data, json_file, ensure_ascii=False, indent=4, sort_keys=True)
