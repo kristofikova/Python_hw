@@ -56,5 +56,5 @@ for i in range(len(titles)):
     netflix_list.append(dictionary)
 
 # uložení souboru do Json formátu
-with open("hw22_output.json","w") as json_file:
+with open("hw22_output.json","w",encoding="utf-8") as json_file:
     json.dump(netflix_list,json_file,ensure_ascii=False,indent=4)
